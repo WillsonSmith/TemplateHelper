@@ -51,7 +51,10 @@ var App = (function() {
 
 		},
 
-		generateItem : function(type, data, element, def, types) {
+		generateItem : function(type, data, element, def) {
+			//add generation for elements created in markup
+				//this would use something like data-times to copy it and make more
+				//migt make this something else, not under generate
 
 			function generateList(data, item){
 

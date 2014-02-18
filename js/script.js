@@ -2,10 +2,9 @@
 
 App.loop();
 
-	var numList = document.getElementById("numberList");
-	var defaultTest = document.getElementById("defaultTest");
-
-	var dataGrabber = new App.connect("GET", "js/data.js");
+	var numList = document.getElementById("numberList"),
+	defaultTest = document.getElementById("defaultTest"),
+	dataGrabber = new App.connect("GET", "js/data.js");
 
 	if (dataGrabber.respond() !== undefined){
 

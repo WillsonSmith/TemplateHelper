@@ -39,3 +39,7 @@ script.js
 To preview you must run a local server, this is due to the XHR request to data.js. on OS X you can open terminal, navigate to the folder, and do `python -m SimpleHTTPServer`
 
 
+In the following image: orange is what is generated, the list, and the red is elements populated with populateItem
+
+<img src='http://f.cl.ly/items/3b12151A0h3p0Z1z3e13/Screenshot%202014-02-18%2018.31.12.png' alt='preview'>
+
