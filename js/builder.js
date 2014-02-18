@@ -99,8 +99,6 @@ var App = (function() {
 
 							for (var i = 0, l = ofEach.length; i < l; i++) {
 
-								console.log(ofEach[i].getAttribute("data-data"));
-
 								ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")];
 
 							}

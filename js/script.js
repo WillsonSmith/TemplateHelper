@@ -16,7 +16,7 @@ App.loop();
 	App.generateItem("list", dataGrabber.list, numList, true);
 
 
-	App.generateItem("default", dataGrabber, defaultTest, false, ["span", "div"]);
+	App.generateItem("default", dataGrabber, defaultTest, false, ["p", "div"]);
 
 
 })();
