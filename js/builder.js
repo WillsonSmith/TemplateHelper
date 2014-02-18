@@ -99,7 +99,9 @@ var App = (function() {
 
 							for (var i = 0, l = ofEach.length; i < l; i++) {
 
-								ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")];
+								if (ofEach[i].getAttribute("data-data")){
+									ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")];
+								}
 
 							}
 

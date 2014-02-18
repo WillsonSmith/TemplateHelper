@@ -15,17 +15,22 @@
 	<div id="numberList" class="lister" data-type="list">
 	</div>
 
+<p>The following uses data acquired by <a href='/js/data.js'>data.js</a> and applies it to the matching &lt; p &gt; and &lt;div&gt; tags with the data-attriubte "data-data" set to the data they should use.
+
+	<div id="defaultTest">
+
+		<p data-data="Para1"></p>
+		<p>It uses "Para1" from data.js, note it has the attribute "data-data" set to "Para1" to tell it what data to use.</p>
+
+		<p data-data="Para2"></p>
+
+		<div data-data="Div1"></div>
+		<div data-data="Div2"></div>
+
+	</div>
+
 </div>
 
-<div id="defaultTest">
-
-	<p data-data="Para1"></p>
-	<p data-data="Para2"></p>
-
-	<div data-data="Div1"></div>
-	<div data-data="Div2"></div>
-
-</div>
 
 
 <script src="js/builder.js"></script>
