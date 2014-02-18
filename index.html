@@ -12,20 +12,22 @@
 <body>
 <div id="container" class="container">
 
-	<div id="numberList" class="lister" data-type="list">
+<p>The following uses data acquired by <a href='/js/data.js'>data.js</a> creates a list. It uses the data-attriubte "data-type" to decide what to make.
+
+	<div id="numberList" class="lister generated" data-type="list">
 	</div>
 
 <p>The following uses data acquired by <a href='/js/data.js'>data.js</a> and applies it to the matching &lt; p &gt; and &lt;div&gt; tags with the data-attriubte "data-data" set to the data they should use.
 
 	<div id="defaultTest">
 
-		<p data-data="Para1"></p>
+		<p data-data="Para1" class="populated"></p>
 		<p>It uses "Para1" from data.js, note it has the attribute "data-data" set to "Para1" to tell it what data to use.</p>
 
-		<p data-data="Para2"></p>
+		<p data-data="Para2" class="populated"></p>
 
-		<div data-data="Div1"></div>
-		<div data-data="Div2"></div>
+		<div data-data="Div1" class="populated"></div>
+		<div data-data="Div2" class="populated"></div>
 
 	</div>
 
