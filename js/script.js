@@ -13,10 +13,11 @@ App.loop();
 
 	}
 
-	App.generateItem("list", dataGrabber.list, numList, true);
+	App.generateItem("list", dataGrabber["list"], numList, true);
 
 
-	App.generateItem("default", dataGrabber, defaultTest, false, ["p", "div"]);
+	App.generateItem("default", dataGrabber["default"], defaultTest, false, ["p", "div"]);
+	//Might want to change this to populateItem
 
 
 })();
