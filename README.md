@@ -35,4 +35,7 @@ script.js
 
 **more to come**
 
+##Previewing
+To preview you must run a local server, this is due to the XHR request to data.js. on OS X you can open terminal, navigate to the folder, and do `python -m SimpleHTTPServer`
+
 
