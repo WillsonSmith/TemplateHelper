@@ -45,11 +45,9 @@ var App = (function() {
 			for (var i = 0, l = elements.length; i < l; i++) {
 
 				elArray.push([elements[i], elements[i].getAttribute("data-type")]);
-				//generateItem(elements[i].getAttribute("data-type"), dataList, elements[i]);
 
 			}
 			return elArray;
-			//console.log(elArray);
 
 		},
 
@@ -97,6 +95,18 @@ var App = (function() {
 
 						}
 
+						function setEach(ofEach){
+
+							for (var i = 0, l = ofEach.length; i < l; i++) {
+
+								console.log(ofEach[i].getAttribute("data-data"));
+
+								ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")];
+
+							}
+
+						}
+
 						for (var i = 0, l = types.length; i < l; i++){
 
 							element.querySelectorAll(types[i]);
@@ -108,18 +118,9 @@ var App = (function() {
 
 						for (var i = 0, l = eachType.length; i < l; i++) {
 
-							console.log(eachType[i][1]);
-							//Must account for multiple of each
-							console.log(eachType[i][1][0]["attributes"][0]);
+							setEach(eachType[i][1]);
 
 						}
-
-
-						/*for (var i = 0, l = data.length; i < l; i++) {
-
-
-
-						}*/
 
 					}
 
