@@ -51,6 +51,50 @@ var App = (function() {
 
 		},
 
+		cloneItem : function(element, tags){
+
+			function duplicateItem(elem, newItem){
+				var dupe = elem.cloneNode(true);
+				return dupe;
+
+			}
+
+			function setEach(tag){
+
+				var innerElements = element.querySelectorAll(tag),
+					dupe,
+					number,
+					toAppend = document.createDocumentFragment();
+
+				for (var i = 0, l = innerElements.length; i < l; i++) {
+
+					if (innerElements[i].getAttribute("data-multiple")){
+
+						number = innerElements[i].getAttribute("data-multiple")|0;
+
+						for (var j = 0; j < number; j++) {
+
+							toAppend.appendChild(duplicateItem(innerElements[i]));
+
+						}
+
+						innerElements[i].appendChild(toAppend);
+
+					}
+
+
+				}
+
+			}
+
+			for (var i = 0, l = tags.length; i < l; i++) {
+
+				setEach(tags[i]);
+
+			}
+
+		},
+
 		generateItem : function(type, data, element, def) {
 			//add generation for elements created in markup
 				//this would use something like data-times to copy it and make more
@@ -58,17 +102,18 @@ var App = (function() {
 
 			function generateList(data, item){
 
+				var ul = document.createElement("ul"),
+					li;
+
 				if (data === undefined && def === true) {
 
 					data = ['data not found'];
 
 				}
 
-				var ul = document.createElement("ul");
-
 				for (var i = 0, l = data.length; i < l; i++) {
 
-					var li = document.createElement("li");
+					li = document.createElement("li");
 					li.innerHTML = data[i];
 
 					ul.appendChild(li);

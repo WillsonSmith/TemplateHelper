@@ -4,6 +4,7 @@ App.loop();
 
 	var numList = document.getElementById("numberList"),
 	defaultTest = document.getElementById("defaultTest"),
+	duplicate = document.getElementById("multipleContainer"),
 	dataGrabber = new App.connect("GET", "js/data.js");
 
 	if (dataGrabber.respond() !== undefined){
@@ -17,6 +18,6 @@ App.loop();
 
 	App.populateItem("all", dataGrabber["default"], defaultTest, ["p", "div"]);
 	//Might want to change this to populateItem
-
+	App.cloneItem(duplicate, ["div"]);
 
 })();
