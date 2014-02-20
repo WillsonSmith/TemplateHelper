@@ -67,7 +67,7 @@ var App = (function() {
 						}
 
 					}
-				console.log(dupeTags);
+				//console.log(dupeTags);
 				App.populateItem("all", data[increment], dupe, dupeTags);
 
 				return dupe;
@@ -95,7 +95,8 @@ var App = (function() {
 
 						}
 
-						innerElements[i].appendChild(toAppend);
+						/*innerElements[i]*/
+						element.appendChild(toAppend);
 
 					}
 
@@ -181,7 +182,7 @@ var App = (function() {
 					for (var i = 0, l = ofEach.length; i < l; i++) {
 
 						if (ofEach[i].getAttribute("data-data")){
-							ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")];
+							ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")]; //need to cover data not recovered
 						}
 
 					}
