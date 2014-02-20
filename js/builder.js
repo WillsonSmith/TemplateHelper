@@ -56,10 +56,7 @@ var App = (function() {
 			function duplicateItem(elem, increment, data){
 				var dupe = elem.cloneNode(true);
 
-				var dataItems = dupe.querySelectorAll(["data-data"]);
-
-				console.log(data[increment], increment);
-				App.populateItem("all", data[increment], dupe, ["div"]);
+				App.populateItem("all", data[increment], dupe, ["div"]);//change from div
 
 				return dupe;
 
@@ -76,9 +73,11 @@ var App = (function() {
 
 					if (innerElements[i].getAttribute("data-multiple")){
 
+						App.populateItem("all", data[0], innerElements[i], ["div"]);//change from div
+
 						number = innerElements[i].getAttribute("data-multiple")|0;
 
-						for (var j = 0; j < number; j++) {
+						for (var j = 1; j < number; j++) {
 
 							toAppend.appendChild(duplicateItem(innerElements[i], j, data));
 
@@ -179,7 +178,7 @@ var App = (function() {
 
 				for (var i = 0, l = tags.length; i < l; i++){
 
-					element.querySelectorAll(tags[i]);
+					//element.querySelectorAll(tags[i]);
 					eachType.push(convert(element.querySelectorAll(tags[i]), tags[i]));
 
 					//making search through types, get data attributes
