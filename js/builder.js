@@ -50,13 +50,25 @@ var App = (function() {
 		},
 
 		cloneItem : function(element, tags, data){
-			//add data option, if data-multiple = "true" then use that data, else just make many
-			//how to handle data incrementally?
 
 			function duplicateItem(elem, increment, data){
-				var dupe = elem.cloneNode(true);
+				var dupe = elem.cloneNode(true),
+					dataElements = dupe.querySelectorAll("[data-data]"),
+					dupeTags = [],
+					tempName = "";
 
-				App.populateItem("all", data[increment], dupe, ["div"]);//change from div
+					for(var i = 0, l = dataElements.length; i < l; i++) {
+
+						if (dataElements[i].tagName != tempName){
+
+							tempName = dataElements[i].tagName;
+							dupeTags.push(dataElements[i].tagName);
+
+						}
+
+					}
+				console.log(dupeTags);
+				App.populateItem("all", data[increment], dupe, dupeTags);
 
 				return dupe;
 
