@@ -1,7 +1,5 @@
 var App = (function() {
 
-	var dataList = ["one", "two", "three", "four"];
-
 	return {
 
 		connect: function(method, location, callback){
@@ -51,10 +49,18 @@ var App = (function() {
 
 		},
 
-		cloneItem : function(element, tags){
+		cloneItem : function(element, tags, data){
+			//add data option, if data-multiple = "true" then use that data, else just make many
+			//how to handle data incrementally?
 
-			function duplicateItem(elem, newItem){
+			function duplicateItem(elem, increment, data){
 				var dupe = elem.cloneNode(true);
+
+				var dataItems = dupe.querySelectorAll(["data-data"]);
+
+				console.log(data[increment], increment);
+				App.populateItem("all", data[increment], dupe, ["div"]);
+
 				return dupe;
 
 			}
@@ -74,7 +80,7 @@ var App = (function() {
 
 						for (var j = 0; j < number; j++) {
 
-							toAppend.appendChild(duplicateItem(innerElements[i]));
+							toAppend.appendChild(duplicateItem(innerElements[i], j, data));
 
 						}
 

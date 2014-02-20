@@ -1,5 +1,21 @@
 (function(){
 
+
+	var dataList = [{"dataOne": "one",
+					 "dataTwo": "two"},
+
+					{"dataOne": "three",
+					 "dataTwo": "four"},
+
+					{"dataOne": "five",
+					 "dataTwo": "six"},
+
+					{"dataOne": "seven",
+					 "dataTwo": "eight"},
+
+					{"dataOne": "nine",
+					 "dataTwo": "ten"}];
+
 App.loop();
 
 	var numList = document.getElementById("numberList"),
@@ -18,6 +34,6 @@ App.loop();
 
 	App.populateItem("all", dataGrabber["default"], defaultTest, ["p", "div"]);
 	//Might want to change this to populateItem
-	App.cloneItem(duplicate, ["div"]);
+	App.cloneItem(duplicate, ["div"], dataList);
 
 })();
