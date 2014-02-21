@@ -17,7 +17,7 @@ App.loop();
 
 
 	App.populateItem("all", dataGrabber["default"], defaultTest, ["p", "div"]);
-	//Might want to change this to populateItem
+
 	App.cloneItem(duplicate, ["div"], dataGrabber["multiple"]);
 
 })();

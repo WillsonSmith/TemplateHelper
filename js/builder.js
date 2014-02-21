@@ -70,7 +70,7 @@ var App = (function() {
 				elArray.push([elements[i], elements[i].getAttribute("data-type")]);
 
 			}*/
-			return images;
+			//return images;
 
 		},
 
