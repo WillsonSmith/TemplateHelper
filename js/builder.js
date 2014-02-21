@@ -34,6 +34,20 @@ var App = (function() {
 
 		},
 
+		checkData : function(data, subData){
+
+				if (data || data[subData]){
+
+					return true;
+
+				}else{
+
+					return false;
+
+				}
+
+		},
+
 		loop : function() {
 
 			var elements = document.querySelectorAll("div"),
@@ -83,9 +97,9 @@ var App = (function() {
 
 				for (var i = 0, l = innerElements.length; i < l; i++) {
 
-					if (innerElements[i].getAttribute("data-multiple")){
+					if (innerElements[i].getAttribute("data-multiple") && App.checkData(data)){
 
-						App.populateItem("all", data[0], innerElements[i], ["div"]);//change from div
+						App.populateItem("all", data[0], innerElements[i], ["[data-data]"]);//change from div
 
 						number = innerElements[i].getAttribute("data-multiple")|0;
 
@@ -181,7 +195,9 @@ var App = (function() {
 
 					for (var i = 0, l = ofEach.length; i < l; i++) {
 
-						if (ofEach[i].getAttribute("data-data")){
+						if (ofEach[i].getAttribute("data-data") && App.checkData(data, ofEach[i].getAttribute("data-data"))){
+//herehere
+
 							ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")]; //need to cover data not recovered
 						}
 
