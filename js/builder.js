@@ -53,7 +53,7 @@ var App = (function() {
 			/*var elements = document.querySelectorAll("div"),
 				elArray = [];*/
 
-			var images = document.querySelectorAll("img");
+			/*var images = document.querySelectorAll("img");
 
 			for (var i = 0, l = images.length; i < l; i++) {
 
@@ -61,7 +61,7 @@ var App = (function() {
 
 					images[i].src = images[i].getAttribute("data-src");
 
-				}
+				}*/
 
 			}
 
