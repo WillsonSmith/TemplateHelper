@@ -48,18 +48,29 @@ var App = (function() {
 
 		},
 
-		loop : function() {
+		loop : function() { //things to be done on start? may remove images
 
-			var elements = document.querySelectorAll("div"),
-				elArray = [];
+			/*var elements = document.querySelectorAll("div"),
+				elArray = [];*/
 
+			var images = document.querySelectorAll("img");
 
-			for (var i = 0, l = elements.length; i < l; i++) {
+			for (var i = 0, l = images.length; i < l; i++) {
+
+				if (images[i].getAttribute("data-src")){
+
+					images[i].src = images[i].getAttribute("data-src");
+
+				}
+
+			}
+
+			/*for (var i = 0, l = elements.length; i < l; i++) {
 
 				elArray.push([elements[i], elements[i].getAttribute("data-type")]);
 
-			}
-			return elArray;
+			}*/
+			return images;
 
 		},
 
