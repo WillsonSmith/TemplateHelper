@@ -8,18 +8,18 @@
 		"Div2": "This is my test data for Div2"
 	},
 	"multiple": [{"dataOne": "one",
-					 "dataTwo": "two"},
+					"dataTwo": "two"},
 
 					{"dataOne": "three",
-					 "dataTwo": "four"},
+					"dataTwo": "four"},
 
 					{"dataOne": "five",
-					 "dataTwo": "six"},
+					"dataTwo": "six"},
 
 					{"dataOne": "seven",
-					 "dataTwo": "eight"},
+					"dataTwo": "eight"},
 
 					{"dataOne": "nine",
-					 "dataTwo": "ten"}]
+					"dataTwo": "ten"}]
 
 }

@@ -2,38 +2,6 @@ var App = (function() {
 
 	return {
 
-		connect: function(method, location, callback){
-
-			var request = new XMLHttpRequest(),
-				response;
-
-			request.open(method, location, false);
-			request.send();
-
-			if (request.status === 200) {
-
-				response = request.responseText;
-
-			}
-
-			return {
-
-				respond: function() {
-
-					return response;
-
-				},
-
-				custom: callback || function() {
-
-					return this;
-
-				}
-
-			}
-
-		},
-
 		checkData : function(data, subData){
 
 				if (data || data[subData]){
@@ -45,32 +13,6 @@ var App = (function() {
 					return false;
 
 				}
-
-		},
-
-		loop : function() { //things to be done on start? may remove images
-
-			/*var elements = document.querySelectorAll("div"),
-				elArray = [];*/
-
-			/*var images = document.querySelectorAll("img");
-
-			for (var i = 0, l = images.length; i < l; i++) {
-
-				if (images[i].getAttribute("data-src")){
-
-					images[i].src = images[i].getAttribute("data-src");
-
-				}*/
-
-			}
-
-			/*for (var i = 0, l = elements.length; i < l; i++) {
-
-				elArray.push([elements[i], elements[i].getAttribute("data-type")]);
-
-			}*/
-			//return images;
 
 		},
 
@@ -225,7 +167,7 @@ var App = (function() {
 
 				}
 
-				for (var i = 0, l = eachType.length; i < l; i++) {
+				for (i = 0, l = eachType.length; i < l; i++) {
 
 					setEach(eachType[i][1]);
 
@@ -247,7 +189,7 @@ var App = (function() {
 
 		}
 
-	}
+	};
 
 	//loop();
 
