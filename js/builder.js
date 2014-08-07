@@ -50,7 +50,7 @@ var App = (function() {
 
 				for (var i = 0, l = innerElements.length; i < l; i++) {
 
-					if (innerElements[i].getAttribute("data-multiple") && App.checkData(data)){
+					if (innerElements[i].getAttribute("data-multiple") && App.checkData(data)) {
 
 						App.populateItem("all", data[0], innerElements[i], ["[data-data]"]);//change from div
 
@@ -139,12 +139,12 @@ var App = (function() {
 
 				}
 
-				function setEach(ofEach){
+				function setEach(ofEach) {
 					var eachData;
 					for (var i = 0, l = ofEach.length; i < l; i++) {
 						data = ofEach[i].getAttribute("data-data");
 
-						if (eachData && App.checkData(data, eachData)){
+						if (eachData && App.checkData(data, eachData)) {
 //herehere
 
 							ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")]; //need to cover data not recovered
@@ -154,7 +154,7 @@ var App = (function() {
 
 				}
 
-				for (var i = 0, l = tags.length; i < l; i++){
+				for (var i = 0, l = tags.length; i < l; i++) {
 
 					//element.querySelectorAll(tags[i]);
 					eachType.push(convert(element.querySelectorAll(tags[i]), tags[i]));
