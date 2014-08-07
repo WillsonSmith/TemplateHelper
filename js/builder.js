@@ -80,7 +80,8 @@ var App = (function() {
 
 		},
 
-		generateItem : function(type, data, element, def) {
+		//change to create
+		createItem : function(type, data, element, def) {
 			//add generation for elements created in markup
 				//this would use something like data-times to copy it and make more
 				//migt make this something else, not under generate
@@ -109,17 +110,11 @@ var App = (function() {
 
 			}
 
-			switch(type){
+			if (type === "list") {
 
-				case "list" :
-					generateList(data, element);
-					break;
-				/*case "default" :
-					generateDefault(data, element, types);
-					break;*/
+				generateList(data, element);
 
 			}
-
 
 		},
 
@@ -145,10 +140,11 @@ var App = (function() {
 				}
 
 				function setEach(ofEach){
-
+					var eachData;
 					for (var i = 0, l = ofEach.length; i < l; i++) {
+						data = ofEach[i].getAttribute("data-data");
 
-						if (ofEach[i].getAttribute("data-data") && App.checkData(data, ofEach[i].getAttribute("data-data"))){
+						if (eachData && App.checkData(data, eachData)){
 //herehere
 
 							ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")]; //need to cover data not recovered
@@ -175,15 +171,9 @@ var App = (function() {
 
 			}
 
-			switch(type){
+			if (type === "all") {
 
-				case "all" :
-					populateAll(data, element, tags);
-
-					break;
-				/*case "default" :
-					generateDefault(data, element, types);
-					break;*/
+				populateAll(data, element, tags);
 
 			}
 
