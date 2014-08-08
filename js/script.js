@@ -37,6 +37,7 @@
   }
 
   var numList = document.getElementById("numberList"),
+  listTwo = document.getElementById("listTwo"),
   defaultTest = document.getElementById("defaultTest"),
   duplicate = document.getElementById("multipleContainer"),
   dataGrabber = connect("GET", "js/data.js");
@@ -47,8 +48,8 @@
 
   }
 
-  App.createItem("list", dataGrabber.list, numList, true);
-
+  App.createItem("li", dataGrabber.list, numList, true);
+  App.createItem("section", dataGrabber.list, listTwo, true);
 
   App.populateItem("all", dataGrabber.default, defaultTest, ["p", "div"]);
 

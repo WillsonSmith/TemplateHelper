@@ -1,24 +1,24 @@
 var App = (function() {
 
+	function checkData(data, subData){
+
+			if (data || data[subData]){
+
+				return true;
+
+			}else{
+
+				return false;
+
+			}
+
+	};
+
 	return {
 
-		checkData : function(data, subData){
+		cloneItem : function(element, tags, data) {
 
-				if (data || data[subData]){
-
-					return true;
-
-				}else{
-
-					return false;
-
-				}
-
-		},
-
-		cloneItem : function(element, tags, data){
-
-			function duplicateItem(elem, increment, data){
+			function duplicateItem(elem, increment, data) {
 				var dupe = elem.cloneNode(true),
 					dataElements = dupe.querySelectorAll("[data-data]"),
 					dupeTags = [],
@@ -26,7 +26,7 @@ var App = (function() {
 
 					for(var i = 0, l = dataElements.length; i < l; i++) {
 
-						if (dataElements[i].tagName != tempName){
+						if (dataElements[i].tagName != tempName) {
 
 							tempName = dataElements[i].tagName;
 							dupeTags.push(dataElements[i].tagName);
@@ -50,7 +50,7 @@ var App = (function() {
 
 				for (var i = 0, l = innerElements.length; i < l; i++) {
 
-					if (innerElements[i].getAttribute("data-multiple") && App.checkData(data)) {
+					if (innerElements[i].getAttribute("data-multiple") && checkData(data)) {
 
 						App.populateItem("all", data[0], innerElements[i], ["[data-data]"]);//change from div
 
@@ -86,10 +86,10 @@ var App = (function() {
 				//this would use something like data-times to copy it and make more
 				//migt make this something else, not under generate
 
-			function generateList(data, item){
+			function generateItem(data, element) {
 
-				var ul = document.createElement("ul"),
-					li;
+				var sparse = document.createDocumentFragment(),
+					newEl;
 
 				if (data === undefined && def === true) {
 
@@ -98,33 +98,31 @@ var App = (function() {
 				}
 
 				for (var i = 0, l = data.length; i < l; i++) {
+					
+					newEl = document.createElement(type);
+					newEl.innerHTML = data[i];
 
-					li = document.createElement("li");
-					li.innerHTML = data[i];
-
-					ul.appendChild(li);
+					sparse.appendChild(newEl);
 
 				}
 
-				element.appendChild(ul);
+				element.appendChild(sparse);
 
 			}
 
-			if (type === "list") {
-
-				generateList(data, element);
-
-			}
+			generateItem(data, element);
 
 		},
 
-		populateItem :  function(type, data, element, tags){
+		populateItem :  function(type, data, element, tags) {
 
-			function populateAll(data, item, tags){
+			function populateAll(data, item, tags) {
+
 				var eachType = [];
 				var ArrConv;
 
-				function convert(nodelist, type){
+				function convert(nodelist, type) {
+
 					var array = [];
 					var finishedArray = [];
 					for (var i = 0, l = nodelist.length; i < l; i++) {
@@ -132,6 +130,7 @@ var App = (function() {
 						array.push(nodelist[i]);
 
 					}
+
 					finishedArray.push(type);
 					finishedArray.push(array);
 
@@ -140,11 +139,12 @@ var App = (function() {
 				}
 
 				function setEach(ofEach) {
+
 					var eachData;
 					for (var i = 0, l = ofEach.length; i < l; i++) {
 						data = ofEach[i].getAttribute("data-data");
 
-						if (eachData && App.checkData(data, eachData)) {
+						if (eachData && checkData(data, eachData)) {
 //herehere
 
 							ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")]; //need to cover data not recovered
