@@ -42,6 +42,8 @@
   duplicate = document.getElementById("multipleContainer"),
   dataGrabber = connect("GET", "js/data.js");
 
+  var App = new TemplateHelper();
+
   if (dataGrabber.respond() !== undefined){
 
     dataGrabber = JSON.parse(dataGrabber.respond());

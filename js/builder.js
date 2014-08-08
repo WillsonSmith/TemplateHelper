@@ -1,4 +1,4 @@
-var App = (function() {
+function TemplateHelper() {
 
 	function checkData(data, subData){
 
@@ -19,6 +19,7 @@ var App = (function() {
 		cloneItem : function(element, tags, data) {
 
 			function duplicateItem(elem, increment, data) {
+
 				var dupe = elem.cloneNode(true),
 					dataElements = dupe.querySelectorAll("[data-data]"),
 					dupeTags = [],
@@ -35,7 +36,8 @@ var App = (function() {
 
 					}
 				//console.log(dupeTags);
-				App.populateItem("all", data[increment], dupe, dupeTags);
+
+				this.populateItem("all", data[increment], dupe, dupeTags);
 
 				return dupe;
 
@@ -52,13 +54,13 @@ var App = (function() {
 
 					if (innerElements[i].getAttribute("data-multiple") && checkData(data)) {
 
-						App.populateItem("all", data[0], innerElements[i], ["[data-data]"]);//change from div
+						this.populateItem("all", data[0], innerElements[i], ["[data-data]"]);//change from div
 
 						number = innerElements[i].getAttribute("data-multiple")|0;
 
 						for (var j = 1; j < number; j++) {
 
-							toAppend.appendChild(duplicateItem(innerElements[i], j, data));
+							toAppend.appendChild(duplicateItem.apply(this, [innerElements[i], j, data]));
 
 						}
 
@@ -74,7 +76,7 @@ var App = (function() {
 
 			for (var i = 0, l = tags.length; i < l; i++) {
 
-				setEach(tags[i]);
+				setEach.call(this, tags[i]);
 
 			}
 
@@ -98,7 +100,7 @@ var App = (function() {
 				}
 
 				for (var i = 0, l = data.length; i < l; i++) {
-					
+
 					newEl = document.createElement(type);
 					newEl.innerHTML = data[i];
 
@@ -183,4 +185,4 @@ var App = (function() {
 
 	//loop();
 
-})();
+}
